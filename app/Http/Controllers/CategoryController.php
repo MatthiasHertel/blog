@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Category;
 
+use Session;
+
 class CategoryController extends Controller
 {
     // access only by login user
@@ -36,6 +38,20 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         // Save a new Category and then redirect back to index
+
+        $this->validate($request, array(
+          'name' => 'required|max:255'
+        ));
+
+        $category = new Category;
+
+        $category->name = $request->name;
+
+        $category->save();
+
+        Session::flash('success', 'New Category has been created.');
+
+        return redirect()->route('categories.index');
     }
 
     /**
