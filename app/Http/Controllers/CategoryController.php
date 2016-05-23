@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Category;
 
 class CategoryController extends Controller
 {
@@ -23,7 +24,7 @@ class CategoryController extends Controller
         // display a view of all of our categories
         // it will also have a form to create a new category
         $categories = Category::all();
-        return view('categories.index')-withCategories($categories);
+        return view('categories.index')->withCategories($categories);
     }
 
     /**
