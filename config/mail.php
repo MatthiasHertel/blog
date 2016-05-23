@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'noreply@mhertel.de', 'name' => 'mhertel blog io'],
 
     /*
     |--------------------------------------------------------------------------
