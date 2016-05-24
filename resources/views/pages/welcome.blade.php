@@ -6,7 +6,7 @@
         <div class="col-md-12">
           <div class="jumbotron">
             <h1>Willkommen zu meinem Blog!</h1>
-            <p class="lead">Vielen Dank für ihren Besuch. Das ist mein Test Blog mit dem Laravel Framework</p>
+            <p class="lead">Hier entsteht mein Blog - Mit der Bearbeitung des Faches Internet Server Programmierung SS 2016</p>
             <p><a class="btn btn-primary btn-lg" href="#" role="button">Popular Posts</a></p>
           </div>
         </div>
