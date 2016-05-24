@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "52e1f2a30ff0aa02210925307287123d",
-    "content-hash": "50f52065363e7db87176a63a355f7579",
+    "hash": "1f972e5701786e800c2f04e4d85c5e6e",
+    "content-hash": "1c8a3af55531c13b30714aa76ad8030e",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -60,6 +60,46 @@
                 "preload"
             ],
             "time": "2015-11-09 22:51:51"
+        },
+        {
+            "name": "codecourse/notify",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codecourse/notify.git",
+                "reference": "1abffc3d9a6d8ef79d9f2c0af0a1bcadc86bf4c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codecourse/notify/zipball/1abffc3d9a6d8ef79d9f2c0af0a1bcadc86bf4c1",
+                "reference": "1abffc3d9a6d8ef79d9f2c0af0a1bcadc86bf4c1",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Codecourse\\Notify\\": "src/"
+                },
+                "files": [
+                    "src/Codecourse/Notify/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alex Garrett",
+                    "email": "alex@codecourse.com"
+                }
+            ],
+            "description": "Flexible flash notifications for Laravel",
+            "time": "2015-12-01 09:20:03"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

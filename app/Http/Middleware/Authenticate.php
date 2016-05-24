@@ -23,7 +23,11 @@ class Authenticate
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             } else {
-                Session::flash('error','You have to login before accessing this site!');
+                // Notify
+                notify()->flash('You have to login before accessing this site!', 'error', [
+                  'timer' => 2000,
+                ]);
+                // Session::flash('error','You have to login before accessing this site!');
                 return redirect()->guest('auth/login');
             }
         }

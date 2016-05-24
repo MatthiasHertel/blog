@@ -10,6 +10,18 @@
 	</div>
 @endif
 
+@if(notify()->ready())
+<script>
+	swal({
+		title:"{!! notify()->message() !!}",
+		type:"{!! notify()->type() !!}",
+		@if (notify()->option('timer'))
+			timer:"{!! notify()->option('timer') !!}"
+		@endif
+	});
+</script>
+@endif
+
 @if (count($errors) > 0)
 
 	<div class="alert alert-danger" role="alert">
