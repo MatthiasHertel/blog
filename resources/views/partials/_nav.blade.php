@@ -39,6 +39,9 @@
       <form class="navbar-form navbar-left" role="search" action="{{ route('login')}}">
         <button type="submit" class="btn btn-default">Login</button>
       </form>
+      <form class="navbar-form navbar-left" role="search" action="{{ route('register')}}">
+        <button type="submit" class="btn btn-default">Register</button>
+      </form>
       @endif
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
