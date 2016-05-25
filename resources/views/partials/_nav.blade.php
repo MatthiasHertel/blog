@@ -36,12 +36,10 @@
       </ul>
 
       @else
-      <form class="navbar-form navbar-left" role="search" action="{{ route('login')}}">
-        <button type="submit" class="btn btn-default">Login</button>
-      </form>
-      <form class="navbar-form navbar-left" role="search" action="{{ route('register')}}">
-        <button type="submit" class="btn btn-default">Register</button>
-      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{ route('login') }}">Login</a></li>
+        <li><a href="{{ route('register') }}">Register</a></li>
+      </ul>
       @endif
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
