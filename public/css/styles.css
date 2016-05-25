@@ -4,3 +4,21 @@
 .form-spacing-top {
   margin-top: 30px;
 }
+.avatar-profile {
+  width: 150px;
+  height: 150px;
+  float: left;
+  border-radius: 50%;
+  margin-right: 25px;
+}
+.avatar-profil-nav {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top:10px;
+  left: 10px;
+  border-radius: 50%;
+}
+.avatar-profil-thumbnail {
+
+}

@@ -28,6 +28,10 @@ Route::post('password/reset', 'Auth\PasswordController@reset');
 // Categories
 Route::resource('categories', 'CategoryController', ['except' => ['create']]);
 
+// User Profile
+Route::get('profile', ['as' => 'profile', 'uses' => 'UserController@profile']);
+Route::post('profile', ['as' => 'update_avatar', 'uses' => 'UserController@update_avatar']);
+
 
 Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
 Route::get('blog', ['uses' => 'BlogController@getIndex', 'as' => 'blog.index']);
