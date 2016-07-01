@@ -22,7 +22,7 @@
         <thead>
           <th>#</th>
           <th>Title</th>
-          <th>Body</th>
+          <th>Introduction</th>
           <th>Created At</th>
           <th></th>
         </thead>
@@ -36,7 +36,7 @@
                 {{ $post->title }}
               </td>
               <td>
-                {{ substr($post->body, 0, 50) }} {{ strlen($post->body) > 50 ? "..." : "" }}
+                {!! substr($post->introduction, 0, 50) !!} {!! strlen($post->introduction) > 50 ? "..." : "" !!}
               </td>
               <td>
                 {{ date('M j, Y', strtotime($post->created_at)) }}

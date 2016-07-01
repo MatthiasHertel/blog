@@ -16,7 +16,7 @@
           <h5>Published: {{ date('M j,Y', strtotime($post->created_at)) }}</h5>
 
           <p>
-            {{ substr($post->body, 0, 250) }} {{ strlen($post->body) >250 ? '...' : "" }}
+            {!! substr($post->introduction, 0, 300) !!} {!! strlen($post->introduction) >300 ? '...' : "" !!}
           </p>
 
           <a href="{{ route('blog.single', $post->slug )}}" class="btn btn-primary">Read more</a>
