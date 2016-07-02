@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Post;
+use App\Tag;
 
 class BlogController extends Controller
 {
     public function getIndex() {
-      $posts = Post::paginate(10);
+      $posts = Post::with('tags')->paginate(10);
       return view('blog.index')->withPosts($posts);
 
     }

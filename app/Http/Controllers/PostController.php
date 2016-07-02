@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Post;
+use App\Tag;
 use App\Category;
 use Session;
 
@@ -53,20 +54,27 @@ class PostController extends Controller
           'introduction' => 'required|max:300',
           'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
           'category_id' => 'required|integer',
-          'body'  => 'required'
+          'body'  => 'required',
+          'tags'  => 'required'
+
         ));
+
+        // create tags
+        $tagIds = Tag::createAndReturnArrayOfTagIds($request->get('tags'));
 
         // store in the database
         $post = new Post;
 
         $post->title = $request->title;
         $post->introduction = $request->introduction;
-        $post->introduction = $request->introduction;
         $post->slug = $request->slug;
         $post->category_id = $request->category_id;
         $post->body = $request->body;
 
         $post->save();
+
+        //Now attach the tags, since this is creating method, attach() is okay
+        $post->tags()->attach($tagIds);
 
         Session::flash('success','The blog post was successfully save!');
 
@@ -82,7 +90,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
+        $post = Post::with('tags')->find($id);
 
         return view('posts.show')->withPost($post);
     }
@@ -95,7 +103,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::find($id);
+        $post = Post::with('tags')->find($id);
         $categories = Category::all();
         $cats = [];
         foreach ($categories as $category) {
@@ -121,7 +129,8 @@ class PostController extends Controller
             'title' => 'required|max:255',
             'introduction' => 'required|max:255',
             'category_id' => 'required|integer',
-            'body'  => 'required'
+            'body'  => 'required',
+            'tags'  => 'required'
           ));
         } else {
           $this->validate($request, array(
@@ -129,10 +138,14 @@ class PostController extends Controller
             'introduction' => 'required|max:255',
             'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
             'category_id' => 'required|integer',
-            'body'  => 'required'
+            'body'  => 'required',
+            'tags'  => 'required'
           ));
 
         }
+
+        $tagIds = Tag::createAndReturnArrayOfTagIds($request->get('tags'));
+
         // save the data to the database
         $post = Post::find($id);
 
@@ -143,6 +156,10 @@ class PostController extends Controller
         $post->body = $request->input('body');
 
         $post->save();
+
+        //Now, sync all the associated tags
+        $post->tags()->sync($tagIds);
+
 
         // set flash data with success message
         Session::flash('success', 'This post was successfully saved.');

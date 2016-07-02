@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Tag;
 
 class PagesController extends Controller {
 
@@ -13,7 +14,7 @@ class PagesController extends Controller {
     # recieve from the model
     # compile or process data from the model if needed
     # pass that data to the correct view
-    $posts = Post::orderBy('created_at', 'desc')->limit(4)->get();
+    $posts = Post::with('tags')->orderBy('created_at', 'desc')->limit(4)->get();
 
     return view('pages.welcome')->withPosts($posts);
   }
