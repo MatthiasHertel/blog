@@ -17,10 +17,10 @@
           {{ Form::label('title', 'Title:') }}
           {{ Form::text('title', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255')) }}
 
-          {{ Form::label('slug', 'Slug:') }}
+          {{ Form::label('slug', 'Slug:', ['class' => 'form-spacing-top']) }}
           {{ Form::text('slug', null, array('class' => 'form-control', 'required' => '', 'minlength' => '5', 'maxlength' => '255')) }}
 
-          {{ Form::label('category_id', 'Category:') }}
+          {{ Form::label('category_id', 'Category:', ['class' => 'form-spacing-top']) }}
           <select class="form-control" name="category_id">
             @foreach($categories as $category)
 
@@ -31,11 +31,13 @@
 
           </select>
 
-          {{ Form::label('introduction', 'Introduction:') }}
+          {{ Form::label('introduction', 'Introduction:', ['class' => 'form-spacing-top']) }}
           {{ Form::textarea('introduction', null, array('class' => 'form-control')) }}
 
-          {{ Form::label('body', 'Post Body:') }}
+          {{ Form::label('body', 'Post Body:', ['class' => 'form-spacing-top']) }}
           {{ Form::textarea('body', null, array('class' => 'form-control post-body')) }}
+          {{ Form::label('tags', 'Tags:', ['class' => 'form-spacing-top']) }}
+          {{ Form::text('tags', null, array('class' => 'form-control', 'required' => '', 'maxlength' => '255', 'data-role' => 'tagsinput','id' => 'input-tags')) }}
 
           {{ Form::submit('Create Post', array('class' => 'btn btn-success btn-lg btn-block', 'style' => 'margin-top:20px;')) }}
         {!! Form::close() !!}
@@ -82,5 +84,19 @@
         }
     };
     tinymce.init(editor_config);
+
+    $('#input-tags').selectize({
+        plugins: ['remove_button'],
+        delimiter: ',',
+        persist: false,
+        create: function(input) {
+            return {
+                value: input,
+                text: input
+            }
+        }
+    });
+
+
   </script>
 @endsection

@@ -8,7 +8,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 {{ Html::style('css/styles.css') }}
 {{ Html::style('css/sweetalert.css') }}
-{!! Html::script('js/sweetalert.min.js') !!}
+<!-- {{ Html::style('css/bootstrap-tagsinput.css') }} -->
+{{ Html::style('css/selectize.bootstrap3.css') }}
+
 
 @yield('stylesheets')
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

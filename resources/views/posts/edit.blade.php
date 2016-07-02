@@ -26,6 +26,14 @@
       {{ Form::label('body', 'Body:', ['class' => 'form-spacing-top']) }}
       {{ Form::textarea('body', null, ['class' => 'form-control post-body']) }}
 
+
+      <div class="form-group">
+        <label class="control-label">Tags:</label>
+
+        <input id="input-tags" data-role="tagsinput" style="width:100%" type="text" class="form-control" name="tags" value="{{ old('tags', implode(', ', $post->tags->lists('name')->all())) }}">
+
+      </div>
+
     </div>
     <div class="col-md-4">
       <div class="well">
@@ -92,6 +100,18 @@
         }
     };
     tinymce.init(editor_config);
+
+    $('#input-tags').selectize({
+        plugins: ['remove_button'],
+        delimiter: ',',
+        persist: false,
+        create: function(input) {
+            return {
+                value: input,
+                text: input
+            }
+        }
+    });
   </script>
 
 @endsection

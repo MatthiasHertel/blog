@@ -10,6 +10,11 @@
 
         <p class="lead">{{ $post->introduction }}</p>
         <p class="lead">{!! $post->body !!}</p>
+        @forelse($post->tags as $tag)
+            <a class="label label-info" rel="tooltip" href="/post/tagged/TODO-slugurl" data-original-title="Post tagged with: {{ $tag->name }}">{{ $tag->name }}</a>
+        @empty
+            <p>No tags found for this photo</p>
+        @endforelse
 
       </div>
       <div class="col-md-4">
