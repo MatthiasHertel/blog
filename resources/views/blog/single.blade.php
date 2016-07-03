@@ -1,6 +1,6 @@
 @extends('main')
 
-@section('title', "| $post->title")
+@section('title',  'TODO pass hier escaped title' )
 
 @section('content')
 
