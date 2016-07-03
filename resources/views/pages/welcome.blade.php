@@ -26,7 +26,7 @@
               </p>
               <h5>Introduction:</h5>
               <p>
-                {!! substr($post->introduction, 0, 300) !!} {!! strlen($post->introduction) > 300 ? "..." : "" !!}
+                {{ substr($post->introduction, 0, 300) }} {{ strlen($post->introduction) > 300 ? "..." : "" }}
               </p>
               <a href="{{ url('blog/'.$post->slug) }}" class="btn btn-primary">Read More</a>
             </div>
